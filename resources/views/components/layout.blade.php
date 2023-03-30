@@ -15,10 +15,10 @@
     <body>
 
       
-
+    <x-navbar/>
         <div class="min-vh-100">
             {{$slot}}
-            <x-navbar/>
+            
         </div>
         
     </body>

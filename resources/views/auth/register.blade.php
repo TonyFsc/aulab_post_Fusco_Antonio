@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="container my-5">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
 
@@ -33,16 +33,16 @@
                     <input name="email" type="email" class="form-control" id="email" value="{{old('email')}}">
                 </div>
                 <div class="mb-3">
-                    <label for="password_" class="form-label"> Password</label>
+                    <label for="password_" class="form-label">Password</label>
                     <input name="password" type="password" class="form-control" id="password">
                 </div>
                 <div class="mb-3">
-                    <label for="password_confimation" class="form-label">Conferma Password</label>
-                    <input name="password_confimation" type="password" class="form-control" id="password_confimation">
+                    <label for="password_confirmation" class="form-label">Conferma Password</label>
+                    <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
                 </div>
                 <div class="mb-2">
                     <button class="btn bg-info text-white">Registrati</button>
-                  <p> class="small mt-2">Utente già registrato?<a href="{{route('login')}}"></a></p>
+                  <p class="small mt-2"> Utente già registrato?<a href="{{route('login')}}"></a></p>
                 </div>
             </form>
                 

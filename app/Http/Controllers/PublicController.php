@@ -8,7 +8,8 @@ class PublicController extends Controller
 {
     
  public function homepage() 
- {
+ {  
+    articles
      return view('welcome');
  }
 }
