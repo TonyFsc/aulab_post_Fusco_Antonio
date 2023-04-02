@@ -20,16 +20,23 @@
                 </ul>
             </div>
             @endif
+            
            <form  class="card p-5 shadow" action="{{route('login')}}" method="post" >
             @csrf
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
+                <label for="email" class="form-label">Email:</label>
+                <input name="email" type="email" class="form-control" id="email" value="{{old('email')}}">
+            </div>
+
+            <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
                 <input name="password" type="password" class="form-control" id="password">
             </div>
+            
             <div class="mt-2">
-                <button class="small mt-2">Accedi</button>
-                <p class="small mt-2">Non sei registrato? <a href="{{route('register')}}">clicca qui</a></p>
+                <button class="btn btn-info text-white">Accedi</button>
+                <p class="small mt-2">Non sei registrato? <a href="{{route('register')}}">Clicca qui</a></p>
             </div>
            </form>
 

@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-8">
 
-            @if ($errors->all())
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -25,13 +25,13 @@
                 @csrf
 
              <div class="mb-3">
-                <label for="title" class="form-label">Titolo</label>
+                <label for="title" class="form-label">Titolo:</label>
                 <input name="title" type="text" class="form-control" id="title" value="{{old('title')}}">
             </div>
 
             
             <div class="mb-3">
-                <label for="subtitle" class="form-label">Sottotitolo</label>
+                <label for="subtitle" class="form-label">Sottotitolo:</label>
                 <input name="subtitle" type="text" class="form-control" id="subtitle" value="{{old('subtitle')}}">
             </div>
 

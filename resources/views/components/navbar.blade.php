@@ -1,28 +1,29 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#">THE POST</a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   @auth
   <li class="nev-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Benvenuto{{Auth::user()->name}}
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+      Benvenuto {{Auth::user()->name}}
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li><a class="dropdown-item" href="">Profilo</a></li>
       <li><hr class="dropdown-divider" ></li>
-      <li><a href="#" class="dropdown-item" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
+      <li><a  class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
         <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
           @csrf
         </form>
     </lu>
   </li>
   @endauth
+  
   @guest
   <li class="nev-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Benvenuto Ospite
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -35,16 +36,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('register')}}">Home <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
+     
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Action</a>

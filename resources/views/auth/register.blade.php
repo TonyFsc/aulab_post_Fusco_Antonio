@@ -25,24 +25,28 @@
                 @csrf
 
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
+                    <label for="username" class="form-label">Username:</label>
                     <input name="name" type="text" class="form-control" id="username" value="{{old('name')}}">
                 </div>
+
                 <div class="mb-3">
-                    <label for="email" class="form-label">mail</label>
+                    <label for="email" class="form-label">Email:</label>
                     <input name="email" type="email" class="form-control" id="email" value="{{old('email')}}">
                 </div>
+
                 <div class="mb-3">
-                    <label for="password_" class="form-label">Password</label>
+                    <label for="password" class="form-label">Password:</label>
                     <input name="password" type="password" class="form-control" id="password">
                 </div>
+
                 <div class="mb-3">
-                    <label for="password_confirmation" class="form-label">Conferma Password</label>
+                    <label for="password_confirmation" class="form-label">Conferma Password:</label>
                     <input name="password_confirmation" type="password" class="form-control" id="password_confirmation">
                 </div>
+
                 <div class="mb-2">
                     <button class="btn bg-info text-white">Registrati</button>
-                  <p class="small mt-2"> Utente già registrato?<a href="{{route('login')}}"></a></p>
+                  <p class="small mt-2"> Utente già registrato?<a href="{{route('login')}}">Clicca qui</a></p>
                 </div>
             </form>
                 

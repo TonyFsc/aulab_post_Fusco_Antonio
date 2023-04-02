@@ -10,7 +10,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
@@ -34,29 +34,7 @@ return new class extends Migration
         Schema::dropIfExists('articles');
     }
     
-    public function store(Request $request){
-
-        $request->validate([
-            'title' => 'required|unique:articles!min:5',
-            'subtitle' => 'required|unique:articles!min:5',
-            'body' => 'required|min:10',
-            'image' => 'image!required',
-            'category' => 'required',
-    
-        ]);
-    
-        Article::create([
-    
-            'title' => $request->title,
-            'subtitle' => $request->subtitle,
-            'body'  => $request->body,
-            'image' => $request->file('image')->store('public/images'),
-            'category_id' => $request->category,
-            'user_id' => Auth::user()->id,
-        ]);
-    
-        return redirect(route('homepage'))->whit('message, Articolo creato correttamente');
-    }
+   
     
 };
 
