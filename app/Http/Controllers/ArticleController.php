@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ArticleController extends Controller
 {
@@ -14,19 +18,14 @@ class ArticleController extends Controller
     }
 
 
-    public function byCategory(){
-
-        $article = $category->articles->sortByDesc('create_at');
-        return view('article.by-category', compact('category','article'));
-    }
-
+   
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $article = Article::orderBy('created_at', 'desc')->get();
+        $articles = Article::orderBy('created_at', 'desc')->get();
         return view('article.index', compact('articles'));
     }
 
@@ -43,6 +42,7 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request){
 
         $request->validate([
@@ -64,7 +64,7 @@ class ArticleController extends Controller
             'user_id' => Auth::user()->id,
         ]);
     
-        return redirect(route('homepage'))->whit('message', 'Articolo creato correttamente');
+        return redirect(route('homepage'))->with('message', 'Articolo creato correttamente');
     }
     /**
      * Display the specified resource.
@@ -73,6 +73,20 @@ class ArticleController extends Controller
     {
       return view ('article.show', compact('article'));
     }
+
+    
+    public function byCategory(Category $category){
+
+        $articles = $category->articles->sortByDesc('created_at');
+        return view('article.byCategory', compact('category','articles'));
+     }
+
+     
+     public function byUser(User $user){
+        $articles = $user->articles->sortByDesc('crated_at');
+        return view('article.by-user', compact('user', 'articles'));
+    }
+  
 
     /**
      * Show the form for editing the specified resource.

@@ -7,7 +7,7 @@
 
   @auth
   <li class="nev-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"  role= "button" data-bs-toggle="dropdown" aria-expanded="false">
       Benvenuto {{Auth::user()->name}}
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -17,7 +17,7 @@
         <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
           @csrf
         </form>
-    </lu>
+</ul>
   </li>
   @endauth
   
@@ -36,7 +36,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('register')}}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('article.index')}}">Home <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
@@ -44,8 +44,8 @@
       </li>
      
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#"></a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>

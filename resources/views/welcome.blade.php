@@ -29,11 +29,13 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$article->title}}</h5>
                         <p class="card-text">{{$article->subtitle}}</p>
-                        <p class="small-text-muted fst-italic text-capitalize">{{$article->category->name}}</p>
+                     
+                        <a href="{{route('article.byCategory',['category' => $article->category->id])}}" class="small text-mutednfst-italicmtext-capitalize">{{$article->category->name}}</a>
                     </div>
                   <div class="card-footer text-muted d-flex justify-content-between align-items-center">
-                    Redatto il {{$article->created_at->format('d/m/Y')}} da {{$article->user->name}}
-                    <a href="{{route('article.byCategory',['category' => $article->category->id])}}" class="small text-mutednfst-italicmtext-capitalize">{{$article->category->name}}</a>
+                  redatto il {{$article->created_at->format('d/m/Y')}} da <a href="{{route('article.byUser', ['byUser'=>$article->user->id])}}" class="px-2 small text-muted fst-italic ">{{$article->byUser}}</a>
+                    <a href="{{route('article.show', compact('article'))}}" class="btn btn-info text-white">Leggi</a>
+                    
                   </div>
                 </div>
             </div>

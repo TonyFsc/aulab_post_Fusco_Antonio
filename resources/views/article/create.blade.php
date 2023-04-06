@@ -21,7 +21,7 @@
             </div>
             @endif
 
-            <form  class="card p-5 shadow" action="{{route('login')}}" method="post" enctype="multipart/form-data">
+            <form  class="card p-5 shadow" action="{{route('article.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
 
              <div class="mb-3">
