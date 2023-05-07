@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -18,9 +19,9 @@ return new class extends Migration
         });
 
         $user = User::create([
-            'name' => 'admin',
-            'eemail' => 'admin@theaulabpost.it',
-            'Password' => bcrypt('12345678'),
+            'name' => 'Admin',
+            'email' => 'admin@theaulabpost.it',
+            'password' => bcrypt('12345678'),
             'is_admin' => true,
         ]);
     }

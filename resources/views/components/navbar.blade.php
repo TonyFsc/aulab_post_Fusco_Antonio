@@ -12,6 +12,30 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li><a class="dropdown-item" href="">Profilo</a></li>
+      @if(Auth::user()->is_admin)
+        <li><a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Admin</a></li>
+        @endif
+      </li>
+
+      @if(Auth::user()->is_revisor)
+        <li><a class="dropdown-item" href="{{route('revisor.dashboard')}}">Dashboard del Revisore</a></li>
+        @endif
+      </li>
+
+      
+      @if(Auth::user()->is_writer)
+        <li><a class="dropdown-item" href="{{route('writer.dashboard')}}">Dashboard del Redattore</a></li>
+        @endif
+      </li>
+      
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
+      </li>
+
+  
+     
+     
       <li><hr class="dropdown-divider" ></li>
       <li><a  class="dropdown-item" href="#" onclick="event.preventDefault(); document.querySelector('#form-logout').submit();">Logout</a></li>
         <form method="post" action="{{route('logout')}}" id="form-logout" class="d-none">
@@ -19,6 +43,7 @@
         </form>
 </ul>
   </li>
+
   @endauth
   
   @guest
@@ -36,26 +61,24 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="{{route('article.index')}}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="{{route('article.create')}}">Inserisci un articolo</a>
       </li>
      
-
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#"></a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('careers')}}">lavora con noi</a>
       </li>
+
+      <form class="d-flex" method="GET" action="{{route('article.search')}}">
+        <input class="form-control me-2" type="search" nome="query" placeholder="Cosa stai cercando?" aria-label="Search">
+        <button class="btn btn-outline-info" type="submit">Cerca</button>
+        
+      </form>
       
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+     
   </div>
 </nav>

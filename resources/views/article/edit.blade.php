@@ -2,7 +2,7 @@
     <div class="container-fluid p-5 bg-info text-center text-white">
         <div class="row justify-content-center">
             <h1 class="display-1">
-                Inserisci un articolo
+               Modifica un articlo
             </h1>
         </div>
     </div>
@@ -21,26 +21,21 @@
             </div>
             @endif
 
-            <form  class="card p-5 shadow" action="{{route('article.store')}}" method="post" enctype="multipart/form-data">
+            <form  class="card p-5 shadow" action="{{route('article.update', compact('article'))}}" method="post" enctype="multipart/form-data">
                 @csrf
-              
+                @method('put')
 
-                <div class="mb-3">
-                <label for="tags" class="form-label">Tags:</label>
-               <input name="tags" id="tags" class="form-control" value="{{old('tags')}}">
-               
-               <span class="small fst-italic">Dividi ogni tag con una virgola</span>
-            </div>
+             
 
              <div class="mb-3">
                 <label for="title" class="form-label">Titolo:</label>
-                <input name="title" type="text" class="form-control" id="title" value="{{old('title')}}">
+                <input name="title" type="text" class="form-control" id="title" value="{{$article->title}}">
             </div>
 
             
             <div class="mb-3">
                 <label for="subtitle" class="form-label">Sottotitolo:</label>
-                <input name="subtitle" type="text" class="form-control" id="subtitle" value="{{old('subtitle')}}">
+                <input name="subtitle" type="text" class="form-control" id="subtitle" value="{{$article->subtitle}}">
             </div>
 
             
@@ -53,15 +48,23 @@
                 <label for="category" class="form-label">Categoria:</label>
                 <select name="category" id="category" class="form-control text-capitalize">
                     @foreach($categories as $category)
-                    <option value="{{$category->id}}">{{$category->name}}</option>
+                    <option value="{{$category->id}}" @if ($article->category && $category->id == $article->category->id) selected @endif>{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="body" class="form-label"> Corpo del testo:</label>
-                <textarea  name="body" type="body" cols="30" rows="7" class="form-control">{{old('body')}}</textarea>
+                <textarea  name="body" type="body" cols="30" rows="7" class="form-control">{{$article->body}}</textarea>
             </div>
+
+            <div class="mb-3">
+                <label for="tags" class="form-label">Tags:</label>
+               <input name="tags" id="tags" class="form-control" value="{{$article->tags->implode('name', ',')}}">
+               
+               <span class="small fst-italic">Dividi ogni tag con una virgola</span>
+            </div>
+
 
             <div class="mt-2">
                 <button class="btn btn-info text-white">Inserisci un Articolo</button>

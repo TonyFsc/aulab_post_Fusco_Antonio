@@ -15,13 +15,18 @@
                     <div class="text-center">
                         <h2 >{{$article->subtitle}}</h2>
                         <div class="my-3 text-muted fst-italic">
-                        <p>Redatto da {{$article->user->name}} il {{$article->created_at->format('d/m/Y')}}</p>
+                        <p>Redatto  <a href="{{route('article.byUser', ['user'=>$article->user->id])}}" class="px-2 small text-muted fst-italic ">{{$article->user->name}}</a> il {{$article->created_at->format('d/m/Y')}}</p>
                         </div>
                     </div>
                     <hr>
                     <p>{{$article->body}}</p>
                     <div class="text-center">
                         <a href="{{route('article.index')}}" class="btn btn-info text-white my-5"> Torna in dietro </a>
+
+                        @if(Auth::user() && Auth::user()->is_revisor)
+                        <a href="{{route('revisor.acceptArticle', compact('article'))}}" class="btn btn-success text-white my-5">Accetta articolo</a>
+                            <a href="{{route('revisor.rejectArticle', compact('article'))}}" class="btn btn-danger text-white my-5">Rifiuta articolo</a>
+                         @endif       
                     </div>
                 </div>
              </div>

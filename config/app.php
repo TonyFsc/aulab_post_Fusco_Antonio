@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Facade;
 
+use Laravel\scout\ScoutServiseProvider;
+
+use TeamTNT\Scout\TNTSearchScoutServiseProvider;
+
 return [
 
     /*
@@ -182,6 +186,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
+        Laravel\scout\ScoutServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -196,6 +203,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
 
+      
+            
     ],
 
     /*
